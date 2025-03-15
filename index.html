@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生个性签名</title>
+</head>
+<body>
+    <h2>学生登录</h2>
+    <form id="loginForm">
+        学号: <input type="text" id="studentId" required><br>
+        密码: <input type="password" id="password" required><br>
+        <button type="submit">登录</button>
+    </form>
+
+    <h2>修改个性签名</h2>
+    <form id="updateForm">
+        个性签名: <input type="text" id="signature"><br>
+        <button type="submit">更新</button>
+    </form>
+
+    <script>
+        document.getElementById("loginForm").onsubmit = function(event) {
+            event.preventDefault();
+            const studentId = document.getElementById("studentId").value;
+            const password = document.getElementById("password").value;
+            fetch("/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `student_id=${studentId}&password=${password}`
+            }).then(res => res.text()).then(alert);
+        };
+
+        document.getElementById("updateForm").onsubmit = function(event) {
+            event.preventDefault();
+            const studentId = document.getElementById("studentId").value;
+            const signature = document.getElementById("signature").value;
+            fetch("/update", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `student_id=${studentId}&signature=${signature}`
+            }).then(res => res.text()).then(alert);
+        };
+    </script>
+</body>
+</html>
