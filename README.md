@@ -2,7 +2,7 @@
 >  轻量、高效、多线程，支持 MySQL 认证的 HTTP 服务器
 
 ##  项目介绍  
-`xlf-webserver` 是一个基于 **C++11** 及 **Linux epoll** 的高性能 HTTP 服务器，采用**单 Reactor + 多线程**的架构，支持**学生信息管理**，包括 **用户登录、个性签名修改** 等功能，并集成了 **MySQL 进行数据存储**,支持大量用户并发访问
+`xlf-webserver` 是一个基于 **C++11** 及 **Linux epoll** 的高性能 HTTP 服务器，采用**单 Reactor + 多线程**的架构，支持**学生选课管理**，包括 **用户登录、学生选课、查看选课** 等功能，并集成了 **MySQL 进行数据存储**,支持大量用户并发访问
 
  **支持功能**：
 -  **基于 非阻塞Socket + Epoll ET + 线程池** 处理高并发请求  
@@ -19,7 +19,7 @@
 ├── ThreadPool.h/.cpp       # 线程池
 ├── HttpParser.h/.cpp       # HTTP 解析
 ├── MySQLConnPool.h/.cpp    # MySQL 连接池
-├── StudentDB.h/.cpp        # 业务逻辑（学生信息管理）
+├── StudentDB.h/.cpp        # 业务逻辑（学生选课管理）
 ├── main.cpp                # 入口文件
 ├── index.html              # 前端页面（用户登录 & 修改个性签名）
 ├── Makefile                # 编译脚本
